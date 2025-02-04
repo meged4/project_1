@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User № {{user.id}}</title>
+</head>
+<body>
+    <div>
+        <b>Вот ваша история заказов, {{user.name}}</b>
+    </div>
+    <hr>
+    <div>
+        {% for order in orders %}
+            <strong>{{order}}</strong>
+            <ul>
+                <li>Инструмент: {{tool.model_name}}</li>
+                <li>Кол-во товара в заказе {{order.quantity}}</li>
+                <li>Общая сумма: {{order.total_amount}} руб.</li>
+                <li>Окончательная цена на 1 позицию: {{order.final_price}} руб.</li>
+            </ul>
+        {% endfor %}
+    </div>
+</body>
+</html>

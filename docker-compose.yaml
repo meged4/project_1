@@ -1,0 +1,21 @@
+version: "1"
+services:
+  db:
+    image: postgres:14
+    container_name: database
+    volumes:
+      - db_vol:/var/lib/postgresql/data
+    networks:
+      - server_net
+
+  backend:
+    image: simple_server
+    networks:
+      - server_net
+
+
+networks:
+  server_net:
+volumes:
+  db_vol:
+
